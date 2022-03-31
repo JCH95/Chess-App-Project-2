@@ -1,23 +1,40 @@
-const express = require('express');
-const PORT = process.env.PORT || 3001;
-const app = express();
-const fs = require('fs');
+// Imports
 const path = require('path');
-const uniqueid = require('uniqid');
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
 
+const app = express();
+const PORT = process.env.PORT || 3001;
 
+const sequelize = require("./config/connection");
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Middleware
-// Parse incoming string or array data
-app.use(express.urlencoded({ extended: true }));
-// Parse incoming JSON data
+const sess = {
+    secret: 'Super secret secret',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
+
+app.use(session(sess));
+
+const helpers = require('./utils/helpers');
+
+const hbs = exphbs.create({ helpers });
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 app.use(express.json());
-// Parse incoming css/js data
-app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(require('./controllers/'));
 
-
-// Starts the server and console logs if it's working
-app.listen(PORT, () => {
-    console.log(`API server now on port ${PORT}!`);
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
 });
