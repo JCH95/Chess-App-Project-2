@@ -22,7 +22,7 @@ ChessData.init(
         },
         elo: {
             type: DataTypes.DECIMAL(10, 2),
-            defaultValue: 1000.00
+            defaultValue: 700.00
         },
         user_id: {
             type: DataTypes.INTEGER,
