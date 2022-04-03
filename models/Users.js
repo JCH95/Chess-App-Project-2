@@ -31,13 +31,25 @@ User.init(
                 isEmail: true
             }
         },
+        is_Host: {
+            type: Boolean,
+            default: false
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [4]
             }
-        }
+        },
+        org_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'organization',
+                key: 'id'
+            }
+        },
     },
     {
         hooks: {
@@ -53,7 +65,7 @@ User.init(
             }
         },
         sequelize,
-        timestamps: false,
+        timestamps: false, // should be able to use workbench
         freezeTableName: true,
         underscored: true,
         modelName: 'user'
