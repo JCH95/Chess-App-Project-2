@@ -14,7 +14,8 @@ Organization.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        user_id: {
+        // Remove if we have circular infinite loop!
+        host_id: { // Trying to connect the host to the organization
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
