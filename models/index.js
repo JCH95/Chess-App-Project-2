@@ -1,15 +1,17 @@
 // import all models
-const User = require('./User');
+const Users = require('./User');
 const Organization = require('./Organization');
-const ChessData = require('./ChessData');
+
 
 // create associations (how you set up your queries)
-Organization.hasMany(User, {
-    foreignKey: 'org_id'
+Organization.hasMany(Users, {
+    foreignKey: 'org_id',
+    constraints: false
 });
-User.hasOne(ChessData, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-});
+// User belongs to organization
+// Users.hasOne(Organization, {
+//     foreignKey: 'org_id',
+//     // constraints: false
+// });
 
-module.exports = { User, Organization, ChessData };
+module.exports = { Users, Organization };
