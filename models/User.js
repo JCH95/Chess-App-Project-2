@@ -15,7 +15,6 @@ User.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
@@ -32,15 +31,27 @@ User.init(
             }
         },
         is_Host: {
-            type: Boolean,
+            type: DataTypes.BOOLEAN,
             default: false
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [4]
-            }
+            // validate: {
+            //     len: [4]
+            // }
+        },
+        wins: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        },
+        losses: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        },
+        elo: {
+            type: DataTypes.DECIMAL(10, 2),
+            defaultValue: 700.00
         },
         org_id: {
             type: DataTypes.INTEGER,

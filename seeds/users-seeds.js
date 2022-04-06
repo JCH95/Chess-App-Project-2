@@ -1,169 +1,99 @@
 // const sequelize = require('../config/connection');
-const { User, Post } = require('../models');
+const { User } = require('../models');
 
 const userdata = [{
-    "username": "adionisii0",
-    "password": "y7nUhskncIo",
-    "email": "dfyers0@vk.com",
-    "is_host": false
-},
-{
-    "username": "kmellish1",
-    "password": "NJsdNy",
-    "email": "clemin1@google.pl",
-    "is_host": true
-},
-{
-    "username": "omacias2",
-    "password": "K7aKPf",
-    "email": "tliger2@addtoany.com",
-    "is_host": false
-},
-{
-    "username": "lrockingham3",
-    "password": "scIvY5C",
-    "email": "ibazley3@linkedin.com",
-    "is_host": true
-},
-{
-    "username": "gmixer4",
-    "password": "1PbBI9lw",
-    "email": "awoodburn4@usa.gov",
-    "is_host": true
-},
-{
-    "username": "jwittey5",
-    "password": "StehJVlZSPaI",
-    "email": "spetrusch5@bloomberg.com",
-    "is_host": false
-},
-{
-    "username": "jjeskin6",
-    "password": "VlW644W8e",
-    "email": "egregorowicz6@arizona.edu",
-    "is_host": false
-},
-{
-    "username": "tbandey7",
-    "password": "CcQRvEx2",
-    "email": "lbaddoe7@npr.org",
-    "is_host": true
-},
-{
-    "username": "eposner8",
-    "password": "qweuUpxSK2",
-    "email": "isimonian8@123-reg.co.uk",
-    "is_host": true
-},
-{
-    "username": "gduchesne9",
-    "password": "3h4oiYKP5Y1A",
-    "email": "lpennone9@nationalgeographic.com",
-    "is_host": false
-},
-{
-    "username": "lwelldrakea",
-    "password": "gLxKySziKk",
-    "email": "tmeneghellia@shinystat.com",
-    "is_host": false
-},
-{
-    "username": "mpleadenb",
-    "password": "ky9w0rvyL",
-    "email": "traggattb@usa.gov",
-    "is_host": false
-},
-{
-    "username": "saroninc",
-    "password": "68eqMJl9t",
-    "email": "rjirikc@arstechnica.com",
-    "is_host": false
-},
-{
-    "username": "scomleyd",
-    "password": "S1cFp9oEv",
-    "email": "mburkertd@unesco.org",
-    "is_host": false
-},
-{
-    "username": "gswindelle",
-    "password": "GJm1hcf",
-    "email": "mbrimmacombee@e-recht24.de",
-    "is_host": false
-},
-{
-    "username": "crubinchikf",
-    "password": "jvcKcyoGbK",
-    "email": "kliberof@cnbc.com",
-    "is_host": true
-},
-{
-    "username": "epautotg",
-    "password": "H8r1esTM6YB",
-    "email": "rkliementg@digg.com",
-    "is_host": false
-},
-{
-    "username": "rzanottih",
-    "password": "wGWlIzp4LO",
-    "email": "vkemwallh@creativecommons.org",
-    "is_host": true
-},
-{
-    "username": "cjocklei",
-    "password": "KmyCWKj7D",
-    "email": "dstoyelli@nba.com",
-    "is_host": true
-},
-{
-    "username": "hburlay14",
-    "password": "58rxcjT",
-    "email": "bhinrichs14@tiny.cc",
-    "is_host": true
-},
-{
-    "username": "kyarker15",
-    "password": "oDVpU0C",
-    "email": "phughland15@google.co.uk",
-    "is_host": true
-},
-{
-    "username": "chamblyn16",
-    "password": "tJvzq7pQSeR",
-    "email": "wcordes16@umn.edu",
-    "is_host": false
-},
-{
-    "username": "vwestman17",
-    "password": "6qHqUrnJ",
-    "email": "bkelsell17@examiner.com",
-    "is_host": false
-},
-{
-    "username": "gspiers18",
-    "password": "Qsm8y3BB",
-    "email": "rcall18@answers.com",
-    "is_host": true
-},
-{
-    "username": "kbraywood1g",
-    "password": "Hg6Cc0p6g",
-    "email": "czettoi1g@cocolog-nifty.com",
-    "is_host": false
-},
-{
-    "username": "mhansberry1h",
-    "password": "wXeBw6xoH",
-    "email": "gmccaughen1h@netvibes.com",
-    "is_host": false
-},
-{
-    "username": "radhams1i",
-    "password": "EK1NjbHbY",
-    "email": "cdecruz1i@arizona.edu",
-    "is_host": false
+    "username": "emansbridge0",
+    "password": "HqhRZHY",
+    "email": "sparidge0@nytimes.com",
+    "is_Host": true,
+    "wins": 80,
+    "losses": 8,
+    "elo": 6749,
+    "org_id": 3
+}, {
+    "username": "rpendred1",
+    "password": "MPsF8giKX",
+    "email": "hmelby1@toplist.cz",
+    "is_Host": true,
+    "wins": 19,
+    "losses": 53,
+    "elo": 1168,
+    "org_id": 3
+}, {
+    "username": "rnutley2",
+    "password": "ZahGe8HHU",
+    "email": "miiannoni2@cafepress.com",
+    "is_Host": true,
+    "wins": 19,
+    "losses": 8,
+    "elo": 4617,
+    "org_id": 2
+}, {
+    "username": "dbetteridge3",
+    "password": "s4KrNL5PTtZL",
+    "email": "tmussalli3@scribd.com",
+    "is_Host": false,
+    "wins": 34,
+    "losses": 34,
+    "elo": 1424,
+    "org_id": 3
+}, {
+    "username": "erubens4",
+    "password": "bMRJcY2zwI",
+    "email": "jjohann4@wikipedia.org",
+    "is_Host": true,
+    "wins": 59,
+    "losses": 36,
+    "elo": 3131,
+    "org_id": 1
+}, {
+    "username": "sdadswell5",
+    "password": "yWrlLc8RPe",
+    "email": "jbrookz5@youtu.be",
+    "is_Host": true,
+    "wins": 82,
+    "losses": 15,
+    "elo": 4799,
+    "org_id": 1
+}, {
+    "username": "hmitchiner6",
+    "password": "Ebam32sSpr",
+    "email": "agwyn6@storify.com",
+    "is_Host": false,
+    "wins": 3,
+    "losses": 40,
+    "elo": 2363,
+    "org_id": 1
+}, {
+    "username": "cpawden7",
+    "password": "N9QzwM",
+    "email": "bkrinks7@boston.com",
+    "is_Host": true,
+    "wins": 12,
+    "losses": 75,
+    "elo": 7441,
+    "org_id": 1
+}, {
+    "username": "kklos8",
+    "password": "DTkUHKk",
+    "email": "bsherbrooke8@blog.com",
+    "is_Host": false,
+    "wins": 89,
+    "losses": 32,
+    "elo": 2361,
+    "org_id": 2
+}, {
+    "username": "spurkiss9",
+    "password": "lt3RrswTzxI",
+    "email": "lleyre9@ehow.com",
+    "is_Host": false,
+    "wins": 82,
+    "losses": 35,
+    "elo": 5132,
+    "org_id": 3
 }];
 
+// 
 const seedUsers = () => User.bulkCreate(userdata, { individualHooks: true });
 
 module.exports = seedUsers;
