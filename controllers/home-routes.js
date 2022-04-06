@@ -5,7 +5,7 @@ const { User, Organization } = require('../models'); // schema for the data and 
 
 // These are the routes that serve up the webpage. 
 // homepage (login)
-router.get('/', (req, res) => {
+router.get('/home', (req, res) => {
     console.log('======================');
     res.render('homepage'); // Just render login page MAKE SURE THERE IS 
     // User.findAll({ // sequelize syntax. Pulls in post from models
@@ -46,7 +46,7 @@ router.get('/', (req, res) => {
 });
 
 // Get Login Page load up
-router.get('/login', (req, res) => {
+router.get('/', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
