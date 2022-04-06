@@ -14,14 +14,15 @@ Organization.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        // Put Chess data here
         // Remove if we have circular infinite loop!
-        host_id: { // Trying to connect the host to the organization
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
+        // host_id: { // Trying to connect the host to the organization
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // },
     },
     {
         sequelize,
