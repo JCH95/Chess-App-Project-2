@@ -23,7 +23,7 @@ body {
 .btn-hover:hover {
   font-weight: bold;
   color: var(--primary);
-  background-color: #bef264;
+  background-color: #161719;
   transition: all 0.6s ease-in-out;
   opacity: 0.75;
 }
@@ -38,7 +38,7 @@ body {
 .btn-hover2:hover {
   font-weight: bold;
   color: var(--primary);
-  background-color: #bef264;
+  background-color: #161719;
   transition: all 0.6s ease-in-out;
   opacity: 0.75;
 }
@@ -53,7 +53,7 @@ body {
 .btn-hover3:hover {
   font-weight: bold;
   color: var(--primary);
-  background-color: #bef264;
+  background-color: #161719;
   transition: all 0.6s ease-in-out;
   opacity: 0.75;
 }

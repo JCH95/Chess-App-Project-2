@@ -17,19 +17,15 @@
     <link rel="stylesheet" href="./public/assets/css/styles.css"/>
 
     <style type="text/tailwindcss">
-
-
   
       .navbar {
         @apply flex justify-around bg-[#272522] text-center text-4xl;
       }
 
-      
       .nav-btn {
         @apply w-16 h-16 rounded-full;
       }
-
-      
+    
     </style>
 
     <title></title>
@@ -42,38 +38,46 @@
 
 
       <!-- Buttons for indaviduals or clubs -->
-      <section class="flex mt-4 bg-[#272522] "> 
-            <button type="submit" class="basis-1/2 text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">Indavidual Rankings</button>
-            <button type="submit" class="basis-1/2 text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">Club Rankings</button>    
+      <section class="flex mt-8 bg-[#272522] "> 
+        <a href="rankings-indavidual.html">
+        <button class="basis-1/2 text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+          <a href="rankings-indavidual.html">
+            Indavidual Rankings
+        </button>
+        <button class="basis-1/2 text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+          <a href="rankings-club.html">
+            Club Rankings
+          </a>
+        </button>    
       </section>
 
       <!-- List of rankings. All info is sample data rn but needs to be dynamically changeable-->
       <section class="flex flex-wrap flex-grow justify-center mt-8 bg-[#272522]"> 
         <ul class="flex flex-col items-center gap-4">
           <li class= "underline font-bold font text-[#FFD700] text-2xl" ><i class="fa-solid fa-medal"></i>
-            test  5,000
+            Club1  5,000
           </li>
           <li class= "underline font-bold text-[#C0C0C0] text-xl" ><i class="fa-solid fa-medal"></i>
-            test  5,000
+            Club2   5,000
           </li>
           <li class= "underline font-bold text-[#CD7F32] text-lg" ><i class="fa-solid fa-medal"></i>
-            test  5,000
+            Club3   5,000
           </li>
           <li class= "underline font-bold text-[#ffffff]" >
-            test  5,000
+            Club4   5,000
           </li>
           <li class= "underline font-bold text-[#ffffff]" >
-            test  5,000
+            Club5   5,000
           </li>
         </ul>  
       </section>
 
 
-             <!-- Navigation Section -->
+      <!-- Navigation Section -->
       <nav class="navbar nav-lg">
 
         <button class="nav-btn btn-hover">
-          <a href="rankings.html"><i class="fas fa-chart-bar"></i></a>
+          <a href="rankings-indavidual.html"><i class="fas fa-chart-bar"></i></a>
         </button>
 
         <button class="nav-btn btn-hover">
@@ -81,11 +85,11 @@
         </button>
 
         <button class="nav-btn btn-hover">
-          <a href="#"><i class="fas fa-chess"></i></a>             
+          <a href="clubpage.html"><i class="fas fa-chess"></i></a>             
         </button>
 
         <button class="nav-btn btn-hover">
-          <a href="#"><i class="fas fa-user"></i></a>            
+          <a href="user-profile.html"><i class="fas fa-user"></i></a>            
         </button>
       </nav>
  
