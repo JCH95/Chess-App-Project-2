@@ -15,19 +15,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
     <!-- css link -->
     <link rel="stylesheet" href="./public/assets/css/styles.css"/>
+
     <style type="text/tailwindcss">
-
-
+  
       .navbar {
         @apply flex justify-around bg-[#272522] text-center text-4xl;
       }
 
-      
       .nav-btn {
         @apply w-16 h-16 rounded-full;
       }
-
-      
+    
     </style>
 
     <title></title>
@@ -37,43 +35,41 @@
 
     <!-- Main Section -->
     <main class="min-h-screen min-w-screen flex flex-col gap-y-8">
- 
-      <!-- User Section -->
-      <section class="profile-picture flex flex-wrap flex-grow justify-center mt-12 bg-[#272522] "> 
-          <!-- User image -->
-            <a href=""><i class="fa-solid fa-user fa-6x text-[#00BA4B]"></i></a>  
-      </section>
-      
-      <!-- Rank Section -->
-      <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] "> 
-        <!-- Ranking Image -->
-        <div class="flex flex-col">
-          <a href=""><i class="fa-solid fa-certificate fa-4x text-[#00BA4B]"></i></a>
-          <h2 class="self-center mt-2 underline font-bold text-[#00BA4B]">Ranking</h2>
-          <!-- 5000 is a placeholder -->
-          <h3 class="self-center text-[#593EFD]" id="ranking">5,000</h3>
-        </div>  
+
+
+      <!-- Buttons for indaviduals or clubs -->
+      <section class="flex mt-8 bg-[#272522] "> 
+        <a href="rankings-indavidual.html">
+        <button class="basis-1/2 text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+          <a href="rankings-indavidual.html">
+            Indavidual Rankings
+        </button>
+        <button class="basis-1/2 text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+          <a href="rankings-club.html">
+            Club Rankings
+          </a>
+        </button>    
       </section>
 
-      <!-- Elo Section -->
-      <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] "> 
-        <!-- Elo Image -->
-        <div class="flex flex-col">
-          <a href=""><i class="fa-solid fa-certificate fa-4x text-[#00BA4B]"></i></a>
-          <h2 class="self-center mt-2 underline font-bold text-[#00BA4B]">Elo</h2>
-          <!-- 5000 is a placeholder -->
-          <h3 class="self-center text-[#593EFD]" id="ranking">5,000</h3>
-        </div>  
-      </section>
-
-      <!-- Share Section -->
-      <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] "> 
-        <!-- Share Image -->
-        <div class="flex flex-col">
-          <button><a href="share-profile.html"><i class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]"></i></a>
-            <h2 class="self-center mt-2 text-[#00BA4B]">Share</h2>
-          </button>
-        </div>  
+      <!-- List of rankings. All info is sample data rn but needs to be dynamically changeable-->
+      <section class="flex flex-wrap flex-grow justify-center mt-8 bg-[#272522]"> 
+        <ul class="flex flex-col items-center gap-4">
+          <li class= "underline font-bold font text-[#FFD700] text-2xl" ><i class="fa-solid fa-medal"></i>
+            Club1  5,000
+          </li>
+          <li class= "underline font-bold text-[#C0C0C0] text-xl" ><i class="fa-solid fa-medal"></i>
+            Club2   5,000
+          </li>
+          <li class= "underline font-bold text-[#CD7F32] text-lg" ><i class="fa-solid fa-medal"></i>
+            Club3   5,000
+          </li>
+          <li class= "underline font-bold text-[#ffffff]" >
+            Club4   5,000
+          </li>
+          <li class= "underline font-bold text-[#ffffff]" >
+            Club5   5,000
+          </li>
+        </ul>  
       </section>
 
 
@@ -96,7 +92,7 @@
           <a href="user-profile.html"><i class="fas fa-user"></i></a>            
         </button>
       </nav>
-
+ 
     </main>
   </body>
 </html>
