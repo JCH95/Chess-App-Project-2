@@ -38,6 +38,45 @@ router.get('/', withAuth, (req, res) => {
 
 
 
+// get single post and comments 
+router.get('/user/:id', (req, res) => {
+    User.findOne({
+        where: {
+            id: req.params.id
+        }, attributes: [
+            'id',
+            'username',
+            'email',
+            'wins',
+            'losses',
+            'elo'
+        ],
+        include: [
+            {
+                model: Organization,
+                attributes: ['id', 'name'],
+            }
+        ]
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+
+            const user = dbUserData.get({ plain: true });
+
+            res.render('single-post', {
+                post,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 
 // Login Page load up
 router.get('/login', (req, res) => {

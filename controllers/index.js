@@ -9,7 +9,7 @@ router.use('/', homeRoutes);
 // add back once dashbaordRoutes are correct
 // router.use('/dashboard', dashboardRoutes);
 // Add once the user-routes and org-routes are correct. 
-// router.use('/api', apiRoutes);
+router.use('/api', apiRoutes);
 
 
 module.exports = router;
