@@ -8,9 +8,9 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     console.log('======================');
     User.findAll({
-        where: { // hopefully this gets the user id for the specific user's data
-            user_id: req.session.user_id
-        },
+        // where: { // hopefully this gets the user id for the specific user's data
+        //     user_id: req.session.user_id
+        // },
         attributes: [
             'id',
             'username',
@@ -18,12 +18,6 @@ router.get('/', withAuth, (req, res) => {
             'wins',
             'losses',
             'elo'
-        ],
-        include: [
-            {
-                model: Organization,
-                attributes: ['id', 'name'],
-            }
         ]
     })
         .then(dbUserData => {
