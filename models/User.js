@@ -60,7 +60,7 @@ User.init(
                 model: 'organization',
                 key: 'id'
             }
-        },
+        }
     },
     {
         hooks: {
