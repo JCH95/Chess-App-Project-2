@@ -1,5 +1,5 @@
 // imports for the seeds
-const seedUsers = require('./users-seeds');
+const seedUsers = require('./user-seeds');
 const seedOrgs = require('./organization-seeds');
 
 // Querries for debugging
