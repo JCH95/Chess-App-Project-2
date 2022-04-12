@@ -7,6 +7,14 @@ const withAuth = require('../utils/auth');
 // get all users for homepage and added withAuth to verify login. 
 router.get('/', withAuth, (req, res) => {
     console.log('======================');
+    console.log(req.session);
+    // req.session.username = dbUserData.username;
+    // req.session.wins = dbUserData.wins;
+    // req.session.losses = dbUserData.losses;
+    // req.session.elo = dbUserData.elo;
+    // req.session.loggedIn = true;)
+
+    // This is to get all user information!!!!!
     User.findAll({
         // where: { // hopefully this gets the user id for the specific user's data
         //     user_id: req.session.user_id

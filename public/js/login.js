@@ -4,6 +4,9 @@ async function loginFormHandler(event) {
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
+    //Debug test
+    console.log(email);
+    console.log(password);
     if (email && password) {
         const response = await fetch('/api/users/login', {
             method: 'post',
@@ -20,35 +23,41 @@ async function loginFormHandler(event) {
             alert(response.statusText);
         }
     }
+};
+
+// async function signupFormHandler(event) {
+//     event.preventDefault();
+
+//     const username = document.querySelector('#username-signup').value.trim();
+//     const email = document.querySelector('#email-signup').value.trim();
+//     const password = document.querySelector('#password-signup').value.trim();
+
+//     if (username && email && password) {
+//         const response = await fetch('/api/users', {
+//             method: 'post',
+//             body: JSON.stringify({
+//                 username,
+//                 email,
+//                 password
+//             }),
+//             headers: { 'Content-Type': 'application/json' }
+//         });
+
+//         // check the response status
+//         if (response.ok) {
+//             console.log('success');
+//         } else {
+//             alert(response.statusText);
+//         }
+//     }
+// }
+if (document.querySelector('#login-form')) {
+    console.log("I am working login check")
+    document.querySelector('#login-form').addEventListener('submit', loginFormHandler)
 }
+// else {
+//     console.log("not working")
+// }
 
-async function signupFormHandler(event) {
-    event.preventDefault();
-
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-
-    if (username && email && password) {
-        const response = await fetch('/api/users', {
-            method: 'post',
-            body: JSON.stringify({
-                username,
-                email,
-                password
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-
-        // check the response status
-        if (response.ok) {
-            console.log('success');
-        } else {
-            alert(response.statusText);
-        }
-    }
-}
-
-document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
-
-document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
+// not used anymore
+// document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);

@@ -24,7 +24,7 @@
                 <div class="self-center mx-auto">
                     <div
                         class="bg-white border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
-                        <form class="space-y-12" action="#">
+                        <form class="space-y-12" action="#" id="login-form">
                             <div>
                                 <label for="email-login"
                                     class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Your
@@ -49,9 +49,12 @@
                                 </div>
 
                                 <div>
-                                    <button type="submit"
-                                        class="w-full text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Not
-                                        Registered? Create account</button>
+                                    {{!-- insert correct filepath to go to create new account /register --}}
+                                    <a href="">
+                                        <button
+                                            class="w-full text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Not
+                                            Registered? Create account</button>
+                                    </a>
                                 </div>
                             </div>
                         </form>
@@ -59,5 +62,4 @@
                 </div>
         </section>
     </main>
-    <script src="/js/login.js"></script>
 </body>
