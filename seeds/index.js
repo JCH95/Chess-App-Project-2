@@ -1,6 +1,6 @@
 // imports for the seeds
 const seedUsers = require('./user-seeds');
-const seedOrgs = require('./organization-seeds');
+const seedOrganizations = require('./organization-seeds');
 
 // Querries for debugging
 const sequelize = require("../config/connection"); // connection to db different due to inside seeds instead of root
@@ -10,7 +10,7 @@ const sequelize = require("../config/connection"); // connection to db different
 const seedAll = async () => {
     await sequelize.sync({ force: true });
     console.log('--------------');
-    await seedOrgs();
+    await seedOrganizations();
     console.log('--------------');
     await seedUsers();
     process.exit(0);

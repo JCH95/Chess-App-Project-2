@@ -40,14 +40,23 @@
                     <a href="/">King Chess Ranking</a>
                 </h1>
                 <nav>
+
+                    {{!-- Basically if logged in show these two buttons else login --}}
                     {{#if loggedIn}}
+                        <a href="/dashboard">Do something if logged in</a>
+                        <button id="logout" class="btn-no-style">logout</button>
+                    {{else}}
+                        <a href="/login">login</a>
+                    {{/if}}
+
+                    {{!-- {{#if loggedIn}}
                     <button id="logout" class="btn-no-style"></button>
                     <a href="/homepage">Logout</a>
                     {{else}}
                     <button id="login" class="btn-no-style">
                         <a href="/login">Login</a>
                     </button>
-                    {{/if}}
+                    {{/if}} --}}
                 </nav>
             </header>
             <main>

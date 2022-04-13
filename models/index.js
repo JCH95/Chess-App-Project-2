@@ -1,10 +1,10 @@
 // import all models
-const Users = require('./User');
+const User = require('./User');
 const Organization = require('./Organization');
 
 
 // create associations (how you set up your queries)
-Organization.hasMany(Users, {
+Organization.hasMany(User, {
     foreignKey: 'org_id',
     constraints: false
 });
@@ -14,4 +14,4 @@ Organization.hasMany(Users, {
 //     // constraints: false
 // });
 
-module.exports = { Users, Organization };
+module.exports = { User, Organization };

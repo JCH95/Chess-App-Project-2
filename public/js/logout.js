@@ -3,12 +3,17 @@ async function logout() {
         method: 'post',
         headers: { 'Content-Type': 'application/json' }
     });
-  
+
     if (response.ok) {
         document.location.replace('/');
     } else {
         alert(response.statusText);
     }
 }
-  
-document.querySelector('#logout').addEventListener('click', logout);
+if (document.querySelector('#logout')) {
+    // console.log("I am working log out check")
+    document.querySelector('#logout').addEventListener('click', logout);
+}
+// else {
+//     console.log("not working due to logout")
+// }

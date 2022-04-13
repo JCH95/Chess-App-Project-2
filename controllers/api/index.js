@@ -5,7 +5,7 @@ const orgsRoutes = require('./organization-routes.js');
 
 
 router.use('/users', userRoutes);
-// update once we complete this route
+// Not completely updated!!!
 // router.use('/orgs', orgsRoutes);
 
 
