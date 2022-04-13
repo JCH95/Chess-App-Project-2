@@ -54,7 +54,8 @@ router.get('/', withAuth, (req, res) => {
     })
         .then(dbUserData => {
             const users = dbUserData.map(user => user.get({ plain: true }));
-            res.render('homepage', { users, loggedIn: true });
+            const user = users[req.session.user_id - 1]
+            res.render('homepage', { user, loggedIn: true});
         })
         .catch(err => {
             console.log(err);
@@ -64,12 +65,13 @@ router.get('/', withAuth, (req, res) => {
 
 
 
-// get single post and comments 
+// get single user stuff
 router.get('/user/:id', (req, res) => {
     User.findOne({
         where: {
-            id: req.params.id
-        }, attributes: [
+            id: req.session.id
+        },
+        attributes: [
             'id',
             'username',
             'email',
@@ -91,10 +93,10 @@ router.get('/user/:id', (req, res) => {
             }
 
             const user = dbUserData.get({ plain: true });
-
-            res.render('single-post', {
-                post,
-                loggedIn: req.session.loggedIn
+            console.log('henlo there');
+            res.render('homepage', {
+                user,
+                loggedIn: true
             });
         })
         .catch(err => {
@@ -106,7 +108,31 @@ router.get('/user/:id', (req, res) => {
 // Login Page load up
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/homepage');
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+router.get('/rankings-individual', withAuth, (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/rankings-individual');
+        return;
+    }
+    res.render('login');
+});
+
+router.get('/clubpage', withAuth, (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/clubpage');
+        return;
+    }
+    res.render('login');
+});
+
+router.get('/user-profile', withAuth, (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/user-profile');
         return;
     }
     res.render('login');
