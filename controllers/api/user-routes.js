@@ -2,11 +2,11 @@
 // This includes correct attributes and ect. 
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-const { Users, Organization } = require('../../models');
+const { User, Organization } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
-    Users.findAll({
+    User.findAll({
         attributes: { exclude: ['password'] }
     })
         .then(dbUserData => res.json(dbUserData))
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 
 router.get('/:id', (req, res) => {
-    Users.findOne({
+    User.findOne({
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
@@ -62,7 +62,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-    Users.create({
+    User.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
@@ -86,7 +86,7 @@ router.post('/', withAuth, (req, res) => {
 
 router.post('/login', (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-    Users.findOne({
+    User.findOne({
         where: {
             email: req.body.email
         }
@@ -132,7 +132,7 @@ router.post('/logout', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     // pass in req.body instead to only update what's passed through
-    Users.update(req.body, {
+    User.update(req.body, {
         individualHooks: true,
         where: {
             id: req.params.id
@@ -154,7 +154,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 
 router.delete('/:id', withAuth, (req, res) => {
-    Users.destroy({
+    User.destroy({
         where: {
             id: req.params.id
         }

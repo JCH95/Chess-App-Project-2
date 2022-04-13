@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection'); // using sequlize which is ORM. This brings in the data.  
-const { Users, Organization } = require('../models'); // schema for the data and tables
+const { User, Organization } = require('../models'); // schema for the data and tables
 const withAuth = require('../utils/auth');
 
 // // get all users for homepage
@@ -39,7 +39,7 @@ router.get('/', withAuth, (req, res) => {
     // req.session.loggedIn = true;)
 
     // This is to get all user information!!!!!
-    Users.findAll({
+    User.findAll({
         // where: { // hopefully this gets the user id for the specific user's data
         //     user_id: req.session.user_id
         // },
@@ -66,7 +66,7 @@ router.get('/', withAuth, (req, res) => {
 
 // get single post and comments 
 router.get('/user/:id', (req, res) => {
-    Users.findOne({
+    User.findOne({
         where: {
             id: req.params.id
         }, attributes: [
