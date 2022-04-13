@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Organization } = require('../models');
+const { Users, Organization } = require('../models');
 const withAuth = require('../utils/auth');
 
 /* All the attributes of User
@@ -11,7 +11,7 @@ id, username, email, is_Host, password, wins, losses, elo, org_id
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('======================');
-    User.findAll({
+    Users.findAll({
         where: {
             user_id: req.session.user_id
         },

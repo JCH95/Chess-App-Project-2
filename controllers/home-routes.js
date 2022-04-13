@@ -1,7 +1,31 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection'); // using sequlize which is ORM. This brings in the data.  
-const { User, Organization } = require('../models'); // schema for the data and tables
+const { Users, Organization } = require('../models'); // schema for the data and tables
 const withAuth = require('../utils/auth');
+
+// // get all users for homepage
+// router.get('/', withAuth, (req, res) => {
+//     console.log('======================');
+//     Users.findAll({
+//         where: {
+//             user_id: req.session.user_id
+//         },
+//         attributes: [
+//             'id', 'username', 'email', 'is_Host', 'password', 'wins', 'losses', 'elo',
+//         ],
+//         // include: {
+//         //     model: Organization,
+//         //     attributes: ['id', 'name']
+//         // }
+//     })
+//         .then(dbUserData => {
+//             const users = dbUserData.map(user => user.get({ plain: true }));
+//             res.render('homepage', {
+//                 users, 
+//                 loggedIn: req.session.loggedIn 
+//             });
+//         })
+// });
 
 
 // get all users for homepage and added withAuth to verify login. 
@@ -15,7 +39,7 @@ router.get('/', withAuth, (req, res) => {
     // req.session.loggedIn = true;)
 
     // This is to get all user information!!!!!
-    User.findAll({
+    Users.findAll({
         // where: { // hopefully this gets the user id for the specific user's data
         //     user_id: req.session.user_id
         // },
@@ -42,7 +66,7 @@ router.get('/', withAuth, (req, res) => {
 
 // get single post and comments 
 router.get('/user/:id', (req, res) => {
-    User.findOne({
+    Users.findOne({
         where: {
             id: req.params.id
         }, attributes: [
@@ -79,11 +103,10 @@ router.get('/user/:id', (req, res) => {
         });
 });
 
-
 // Login Page load up
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/homepage');
         return;
     }
     res.render('login');
