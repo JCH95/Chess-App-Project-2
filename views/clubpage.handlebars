@@ -6,14 +6,14 @@
             {{!-- <!-- Club image and button --> --}}
             <div class=""><i class="fa-solid fa-user fa-7x text-[#00BA4B]"></i>
                 <button>
-                    <a href="club-members-manage.html"><i class="fa-solid fa-gear text-[#00BA4B]"></i></a>
+                    <a href="club-member-manager.html"><i class="fa-solid fa-gear text-[#00BA4B]"></i></a>
                 </button>
             </div> 
                 
             {{!-- <!-- Club Name and Email --> --}}
             <div class="flex flex-col mt-4 items-center">
                 <div id="club-name">
-                    Club 1
+                    {{organization.name}}
                 </div>
                 <div id="club-email">
                     Club@gmail.com
@@ -51,7 +51,7 @@
             {{!-- <!-- members button --> --}}
             <div class="flex flex-col">
                 <button class="text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-full px-5 py-2.5">
-                    <a href="club-members.html">
+                    <a href="/club-members">
                         <h2>Members</h2>
                     </a>
                 </button>
@@ -62,7 +62,7 @@
         <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] "> 
             {{!-- <!-- Share Image --> --}}
             <div class="flex flex-col">
-                <button><a href="share-profile-club.html"><i class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]"></i></a>
+                <button><a href="/share-profile-club"><i class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]"></i></a>
                     <h2 class="self-center mt-2 text-[#00BA4B]">Share</h2>
                 </button>
             </div>  

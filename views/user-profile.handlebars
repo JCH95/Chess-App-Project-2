@@ -13,10 +13,10 @@
             {{!-- <!-- UserName and Email --> --}}
             <div class="flex flex-col mt-4 items-center">
                 <div id="user-name">
-                    Joe Smith
+                    {{user.username}}
                 </div>
                 <div id="user-email">
-                    JoeSmith@gmail.com
+                    {{user.email}}
                 </div>
             </div>
         </section>
@@ -27,7 +27,7 @@
             <div class="flex my-4 flex-col items-center">
                 <h5 class="flex text-xs mb-2 underline">Account Settings</h5>
                 <button class="flex">
-                    <a href="account-security.html">
+                    <a href="/account-security">
                         <p class="text-[#00BA4B]">
                             Account Security
                             <i class="fa-solid fa-arrow-right-long"></i>
@@ -39,7 +39,7 @@
             <div class="flex flex-col items-center">
                 <h5 class="flex text-xs mb-2 underline">Support</h5>
                 <button class="">
-                    <a href="about.html">
+                    <a href="/about">
                         <p class="text-[#00BA4B]">
                             About Chess Stats
                             <i class="fa-solid fa-arrow-right-long"></i>
@@ -53,7 +53,7 @@
                     </p>
                 </button>
                 <button class="">
-                    <a href="share-profile.html">
+                    <a href="/share-profile">
                         <p class="text-[#00BA4B]">
                             Share Profile
                             <i class="fa-solid fa-arrow-right-long"></i>
