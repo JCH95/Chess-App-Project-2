@@ -1,42 +1,12 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection'); // using sequlize which is ORM. This brings in the data.  
+const sequelize = require('../config/connection'); // using sequlize if we need to get data from a tables... not used yet
 const { User, Organization } = require('../models'); // schema for the data and tables
 const withAuth = require('../utils/auth');
-
-// // get all users for homepage
-// router.get('/', withAuth, (req, res) => {
-//     console.log('======================');
-//     Users.findAll({
-//         where: {
-//             user_id: req.session.user_id
-//         },
-//         attributes: [
-//             'id', 'username', 'email', 'is_Host', 'password', 'wins', 'losses', 'elo',
-//         ],
-//         // include: {
-//         //     model: Organization,
-//         //     attributes: ['id', 'name']
-//         // }
-//     })
-//         .then(dbUserData => {
-//             const users = dbUserData.map(user => user.get({ plain: true }));
-//             res.render('homepage', {
-//                 users, 
-//                 loggedIn: req.session.loggedIn 
-//             });
-//         })
-// });
-
 
 // get all users for homepage and added withAuth to verify login. 
 router.get('/', withAuth, (req, res) => {
     console.log('======================');
     console.log(req.session);
-    // req.session.username = dbUserData.username;
-    // req.session.wins = dbUserData.wins;
-    // req.session.losses = dbUserData.losses;
-    // req.session.elo = dbUserData.elo;
-    // req.session.loggedIn = true;)
 
     // This is to get all user information!!!!!
     User.findAll({
@@ -55,7 +25,7 @@ router.get('/', withAuth, (req, res) => {
         .then(dbUserData => {
             const users = dbUserData.map(user => user.get({ plain: true }));
             const user = users[req.session.user_id - 1]
-            res.render('homepage', { user, loggedIn: true});
+            res.render('homepage', { user, loggedIn: true });
         })
         .catch(err => {
             console.log(err);
@@ -91,7 +61,6 @@ router.get('/user/:id', (req, res) => {
                 res.status(404).json({ message: 'No user found with this id' });
                 return;
             }
-
             const user = dbUserData.get({ plain: true });
             console.log('henlo there');
             res.render('homepage', {
@@ -105,6 +74,7 @@ router.get('/user/:id', (req, res) => {
         });
 });
 
+
 // Login Page load up
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -114,6 +84,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+
 router.get('/rankings-individual', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/rankings-individual');
@@ -122,6 +93,7 @@ router.get('/rankings-individual', withAuth, (req, res) => {
     res.render('login');
 });
 
+
 router.get('/clubpage', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/clubpage');
@@ -129,6 +101,7 @@ router.get('/clubpage', withAuth, (req, res) => {
     }
     res.render('login');
 });
+
 
 router.get('/user-profile', withAuth, (req, res) => {
     if (req.session.loggedIn) {

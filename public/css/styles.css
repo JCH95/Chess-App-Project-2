@@ -72,3 +72,19 @@ body {
 #password {
   color: black;
 }
+
+
+/* Just want to update handlebars main page in layouts */
+#chessHeader {
+  font-size: 30px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 50%;
+  padding: 10px;
+}

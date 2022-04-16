@@ -58,11 +58,13 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// This will update the db
+// router.put('/updateElo')
 
 
 router.post('/', withAuth, (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-    User.create({
+    User.create({ // make update instead of create
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
