@@ -55,10 +55,12 @@ User.init(
         },
         org_id: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            // allowNull is default false FYI
+            allowNull: false,
             references: {
-                model: 'organization',
-                key: 'id'
+                model: 'Organization',
+                key: 'id',
+                foreignKey: true
             }
         }
     },

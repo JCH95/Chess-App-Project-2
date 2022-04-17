@@ -6,8 +6,6 @@ const withAuth = require('../utils/auth');
 // get all users for homepage and added withAuth to verify login. 
 router.get('/', withAuth, (req, res) => {
     console.log('======================');
-    console.log(req.session);
-
     // This is to get all user information!!!!!
     User.findAll({
         // where: { // hopefully this gets the user id for the specific user's data
@@ -24,7 +22,7 @@ router.get('/', withAuth, (req, res) => {
     })
         .then(dbUserData => {
             const users = dbUserData.map(user => user.get({ plain: true }));
-            const user = users[req.session.user_id - 1]
+            const user = users.find(u => u.id === req.session.user_id)
             res.render('homepage', { user, loggedIn: true });
         })
         .catch(err => {
@@ -39,7 +37,7 @@ router.get('/', withAuth, (req, res) => {
 router.get('/user/:id', (req, res) => {
     User.findOne({
         where: {
-            id: req.session.id
+            id: req.params.id
         },
         attributes: [
             'id',
@@ -52,9 +50,10 @@ router.get('/user/:id', (req, res) => {
         include: [
             {
                 model: Organization,
-                attributes: ['id', 'name'],
+                attributes: ['id', 'name']
             }
         ]
+        , nested: true
     })
         .then(dbUserData => {
             if (!dbUserData) {
@@ -62,7 +61,6 @@ router.get('/user/:id', (req, res) => {
                 return;
             }
             const user = dbUserData.get({ plain: true });
-            console.log('henlo there');
             res.render('homepage', {
                 user,
                 loggedIn: true
@@ -95,20 +93,29 @@ router.get('/rankings-individual', withAuth, (req, res) => {
 
 
 router.get('/clubpage', withAuth, (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/clubpage');
-        return;
-    }
-    res.render('login');
+    User.findAll({
+        where: {
+            org_id: req.session.org_id
+        },
+    })
+        .then(dbUsersData => {
+            if (!dbUsersData) {
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+            const usersWithOrg = JSON.parse(JSON.stringify(dbUsersData));
+            console.log(usersWithOrg);
+            res.render('clubpage', {
+                usersWithOrg,
+                loggedIn: true
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 
-router.get('/user-profile', withAuth, (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/user-profile');
-        return;
-    }
-    res.render('login');
-});
 
 module.exports = router;
