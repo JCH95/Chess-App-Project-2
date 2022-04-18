@@ -13,7 +13,7 @@ const orgdata = [{
     name: "Jaxworks Chess Club"
 }];
 
-// Derrick look at this!
+// Derek look at this!
 const seedOrganizations = () => Organization.bulkCreate(orgdata, { individualHooks: true });
 
 module.exports = seedOrganizations;
