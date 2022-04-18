@@ -82,7 +82,7 @@
             {{!-- <!-- Share Image --> --}}
             <div class="flex flex-col">
                 <form>
-                    <label>Choose a winner:</label>
+                    <label>Choose a Winner:</label>
                     <select id="winner" name="winner" class="text-black">
                         {{#each usersWithOrg as |member|}}
                         <option class="text-black">{{member.username}}</option>
@@ -90,9 +90,21 @@
                     </select>
                     <input type="submit" class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]">
                 </form>
-                {{!-- <button><a href="/share-profile-club"><i class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]"></i></a>
-                    <h2 class="self-center mt-2 text-[#00BA4B]">Share</h2>
-                </button> --}}
+            </div>  
+        </section>
+
+        <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] "> 
+            {{!-- <!-- Share Image --> --}}
+            <div class="flex flex-col">
+                <form>
+                    <label>Choose a Loser:</label>
+                    <select id="winner" name="winner" class="text-black">
+                        {{#each usersWithOrg as |member|}}
+                        <option class="text-black">{{member.username}}</option>
+                        {{/each}}
+                    </select>
+                    <input type="submit" class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]">
+                </form>
             </div>  
         </section>
         {{/if}}
