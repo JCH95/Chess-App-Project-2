@@ -56,42 +56,55 @@
             </div>
         </section>
 
-        {{!--
-        <!-- members --> --}}
-        <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] ">
-            {{!--
-            <!-- members button --> --}}
-            <div class="flex flex-col">
-                <button class="text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-full px-5 py-2.5">
-                    <a href="/club-members">
-                        <h2>Members</h2>
-                    </a>
-                </button>
-            </div>
-        </section>
         
-        dbUsersData
         {{#if usersWithOrg.length}}
-        <section>
-            <h2>Your Members</h2>
-            <ol>
-                {{#each usersWithOrg as |member|}}
-                <li>
-                    {{!-- edit link to firends page --}}
-                    <a href="/user/{{usersWithOrg.id}}" class="chessMember"></a>
-                    <h3>{{member.username}}</h3>
-                </li>
-                {{/each}}
-            </ol>
+        <section class="justify-center flex flex-wrap flex-grow">
+            <div class="flex flex-col items-center">
+                <h2 class="self-center mt-2 underline font-bold text-[#00BA4B]">Your Members</h2>
+                <div class="justify-center align-center">
+                    <ol>
+                        {{#each usersWithOrg as |member|}}
+                        <li>
+                            {{!-- edit link to firends page --}}
+                            <button class="text-white bg-[#00BA4B] hover:bg-blue-800 focus:ring-1 focus:ring-blue-300 font-medium rounded-full px-5 py-2.5">
+                                <a href="/user/{{usersWithOrg.id}}" class="chessMember"></a>
+                                <h3>{{member.username}} [ Elo: {{member.elo}} ]</h3>
+                            </button>
+                        </li>
+                        {{/each}}
+                    </ol>
+                </div>
+            </div>
         </section>
         
         {{!-- <!-- Share Section --> --}}
         <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] "> 
             {{!-- <!-- Share Image --> --}}
             <div class="flex flex-col">
-                <button><a href="/share-profile-club"><i class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]"></i></a>
-                    <h2 class="self-center mt-2 text-[#00BA4B]">Share</h2>
-                </button>
+                <form>
+                    <label>Choose a Winner:</label>
+                    <select id="winner" name="winner" class="text-black">
+                        {{#each usersWithOrg as |member|}}
+                        <option class="text-black">{{member.username}}</option>
+                        {{/each}}
+                    </select>
+                    <input type="submit" class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]">
+                </form>
+            </div>  
+        </section>
+
+        <section class="profile-picture flex flex-wrap flex-grow justify-center bg-[#272522] "> 
+            {{!-- <!-- Share Image --> --}}
+            <div class="flex flex-col">
+                <form>
+                    <label>Choose a Loser:</label>
+                    <select id="winner" name="winner" class="text-black">
+                        {{#each usersWithOrg as |member|}}
+                        <option class="text-black">{{member.username}}</option>
+                        {{/each}}
+                    </select>
+                    <input type="submit" class="fa-solid fa-arrow-up-from-bracket fa-2x text-[#00BA4B]">
+                </form>
             </div>  
         </section>
         {{/if}}

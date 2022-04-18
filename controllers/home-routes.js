@@ -84,11 +84,27 @@ router.get('/login', (req, res) => {
 
 
 router.get('/rankings-individual', withAuth, (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/rankings-individual');
-        return;
-    }
-    res.render('login');
+    User.findAll({
+        where: {
+            id: req.session.id
+        },
+    })
+        .then(dbUsersData => {
+            if (!dbUsersData) {
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+            const usersWithOrg = JSON.parse(JSON.stringify(dbUsersData));
+            console.log(usersWithOrg);
+            res.render('rankings-individual', {
+                usersWithOrg,
+                loggedIn: true
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 
@@ -106,6 +122,30 @@ router.get('/clubpage', withAuth, (req, res) => {
             const usersWithOrg = JSON.parse(JSON.stringify(dbUsersData));
             console.log(usersWithOrg);
             res.render('clubpage', {
+                usersWithOrg,
+                loggedIn: true
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/user-profile', withAuth, (req, res) => {
+    User.findAll({
+        where: {
+            id: req.session.id
+        },
+    })
+        .then(dbUsersData => {
+            if (!dbUsersData) {
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+            const usersWithOrg = JSON.parse(JSON.stringify(dbUsersData));
+            console.log(usersWithOrg);
+            res.render('user-profile', {
                 usersWithOrg,
                 loggedIn: true
             });
