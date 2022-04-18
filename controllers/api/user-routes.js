@@ -58,11 +58,13 @@ router.get('/:id', (req, res) => {
         });
 });
 
+// This will update the db
+// router.put('/updateElo')
 
 
 router.post('/', withAuth, (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-    User.create({
+    User.create({ // make update instead of create
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
@@ -107,6 +109,7 @@ router.post('/login', (req, res) => {
             req.session.wins = dbUserData.wins;
             req.session.losses = dbUserData.losses;
             req.session.elo = dbUserData.elo;
+            req.session.org_id = dbUserData.org_id;
             req.session.loggedIn = true;
 
             res.json({ user: dbUserData, message: 'You are now logged in!' });
