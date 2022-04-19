@@ -58,7 +58,7 @@ User.init(
             // allowNull is default false FYI
             allowNull: false,
             references: {
-                model: 'Organization',
+                model: 'organization',
                 key: 'id',
                 foreignKey: true
             }
