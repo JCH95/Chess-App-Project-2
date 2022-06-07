@@ -42,6 +42,16 @@ const userdata = [
         losses: 8,
         elo: 1617,
         org_id: 2
+    },
+    {
+        username: "LosersQueue",
+        email: "jackCham@gmail.com",
+        is_Host: true,
+        password: "password1234",
+        wins: 2,
+        losses: 100,
+        elo: 1000,
+        org_id: 1
     }
 ];
 
